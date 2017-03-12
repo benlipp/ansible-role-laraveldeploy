@@ -31,16 +31,16 @@
 - name: install composer dependencies
   composer:
     command: install
-    working_dir: {{ destination }}
+    working_dir: "{{ destination }}"
 
 - name: copy apache config
   template:
     src: templates/laravel_deploy.conf.j2
-    dest: /etc/apache2/sites-available/{{ app_name }}.conf
+    dest: "/etc/apache2/sites-available/{{ app_name }}.conf"
 
 - name: enable apache site
   file:
     state: link
-    src: /etc/apache2/sites-available/{{ app_name }}.conf
-    path: /etc/apache2/sites-enabled/{{ app_name }}.conf
+    src: "/etc/apache2/sites-available/{{ app_name }}.conf"
+    path: "/etc/apache2/sites-enabled/{{ app_name }}.conf"
   notify: restart apache2
