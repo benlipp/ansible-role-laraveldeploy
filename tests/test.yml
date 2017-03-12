@@ -4,4 +4,4 @@
   roles:
     - geerlingguy.composer
     - geerlingguy.git
-    - laravel_deploy
+    - ansible-role-laraveldeploy
