@@ -27,6 +27,7 @@
   template:
     dest: "{{ destination }}/.env"
     src: templates/.env.j2
+  become: yes
 
 - name: install composer dependencies
   composer:
