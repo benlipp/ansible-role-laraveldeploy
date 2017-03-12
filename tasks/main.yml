@@ -17,7 +17,7 @@
 - name: clone the repo
   git:
     repo: "{{ repo }}"
-    destination: "{{ destination }}"
+    dest: "{{ destination }}"
     key_file: "{{ key_file|default(None) }}"
     version: "{{ branch }}"
     accept_hostkey: yes
