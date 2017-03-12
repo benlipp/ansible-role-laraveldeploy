@@ -2,4 +2,5 @@
 - hosts: localhost
   remote_user: root
   roles:
+    - benlipp.php7
     - role: ansible-role-laraveldeploy
