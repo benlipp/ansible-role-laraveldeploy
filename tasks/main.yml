@@ -1,6 +1,4 @@
 ---
-
-
 - name: clear out the directory
   file:
     state: absent
@@ -20,7 +18,7 @@
   git:
     repo: "{{ repo }}"
     destination: "{{ destination }}"
-    key_file: "{{ key_file|defaults(None) }}"
+    key_file: "{{ key_file|default(None) }}"
     version: "{{ branch }}"
     accept_hostkey: yes
 
@@ -38,6 +36,7 @@
   template:
     src: templates/laravel_deploy.conf.j2
     dest: "/etc/apache2/sites-available/{{ app_name }}.conf"
+  become: yes
 
 - name: enable apache site
   file:
@@ -45,3 +44,4 @@
     src: "/etc/apache2/sites-available/{{ app_name }}.conf"
     path: "/etc/apache2/sites-enabled/{{ app_name }}.conf"
   notify: restart apache2
+  become: yes
