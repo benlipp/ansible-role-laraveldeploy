@@ -2,4 +2,6 @@
 - hosts: localhost
   remote_user: root
   roles:
+    - geerlingguy.composer
+    - geerlingguy.git
     - laravel_deploy
