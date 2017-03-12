@@ -1,7 +1,4 @@
 ---
 - hosts: localhost
   remote_user: root
-  roles:
-    - geerlingguy.composer
-    - geerlingguy.git
     - ansible-role-laraveldeploy
