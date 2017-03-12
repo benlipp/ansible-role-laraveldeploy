@@ -1,6 +1,8 @@
 ansible-role-laraveldeploy
 =========
 [![Build Status](https://travis-ci.org/benlipp/ansible-role-laraveldeploy.svg?branch=master)](https://travis-ci.org/benlipp/ansible-role-laraveldeploy)
+
+
 An ansible role to deploy a Laravel app.
 
 Requirements
@@ -24,7 +26,9 @@ Example Playbook
 
     - hosts: webservers
       roles:
-         - { role: benlipp.laraveldeploy, repo: "https://github.com/benlipp/ansible-role-laraveldeploy.git", destination: /srv/www/laravel-app }
+        - role: benlipp.laraveldeploy
+            repo: "https://github.com/benlipp/ansible-role-laraveldeploy.git"
+            destination: /srv/www/laravel-app
 
 License
 -------
