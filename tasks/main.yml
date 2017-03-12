@@ -5,7 +5,7 @@
   file:
     state: absent
     path: "{{ destination }}"
-    become: yes
+  become: yes
 
 - name: make the dir
   file:
