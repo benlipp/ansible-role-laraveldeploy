@@ -11,5 +11,5 @@ laravel_env:
   - { key: APP_ENV, value: local }
   - { key: APP_DEBUG, value: "true" }
   - { key: APP_KEY, value: "{{lookup('env', 'APP_KEY') }}" }
-  - { key: APP_URL, value: http://localhost }
+  - { key: APP_URL, value: "http://localhost" }
   - { key: DB_CONNECTION, value: sqlite }
