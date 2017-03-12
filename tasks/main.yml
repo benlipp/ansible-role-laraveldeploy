@@ -21,6 +21,7 @@
     key_file: "{{ key_file|default(None) }}"
     version: "{{ branch }}"
     accept_hostkey: yes
+  become: yes
 
 - name: generate env file
   template:
