@@ -1,6 +1,6 @@
 ---
 app_name: "laravel"
-destination: /var/www/html
+destination: "/var/www/html"
 repo: "https://github.com/laravel/laravel.git"
 branch: master
 apache2_servername: example.com
