@@ -35,7 +35,7 @@
 
 - name: copy apache config
   template:
-    src: templates/laravel_deploy.conf.env
+    src: templates/laravel_deploy.conf.j2
     dest: /etc/apache2/sites-available/{{ app_name }}.conf
 
 - name: enable apache site

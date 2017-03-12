@@ -1,5 +1,4 @@
 ---
 - hosts: localhost
   remote_user: root
-    - role: ansible-role-laraveldeploy
-      
+  - role: ansible-role-laraveldeploy
