@@ -1,2 +1,46 @@
 ---
-# tasks file for laravel_deploy
+
+
+- name: clear out the directory
+  file:
+    state: absent
+    path: "{{ destination }}"
+    become: yes
+
+- name: make the dir
+  file:
+    state: directory
+    path: "{{ destination }}"
+    owner: "{{ deploy_user }}"
+    group: "{{ deploy_group }}"
+    mode: 0775
+
+- name: clone the repo
+  git:
+    repo: "{{ repo }}"
+    destination: "{{ destination }}"
+    key_file: "{{ key_file|defaults(None) }}"
+    version: "{{ branch }}"
+    accept_hostkey: yes
+
+- name: generate env file
+  template:
+    dest: "{{ destination }}/.env"
+    src: templates/.env.j2
+
+- name: install composer dependencies
+  composer:
+    command: install
+    working_dir: {{ destination }}
+
+- name: copy apache config
+  template:
+    src: templates/laravel_deploy.conf.env
+    dest: /etc/apache2/sites-available/{{ app_name }}.conf
+
+- name: enable apache site
+  file:
+    state: link
+    src: /etc/apache2/sites-available/{{ app_name }}.conf
+    path: /etc/apache2/sites-enabled/{{ app_name }}.conf
+  notify: restart apache2

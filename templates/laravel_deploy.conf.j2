@@ -1,0 +1,7 @@
+<VirtualHost *:80>
+  ServerName {{ apache2_servername }}
+  DocumentRoot {{ destination }}
+  <Directory {{ destination }}>
+    AllowOverride all
+  </Directory>
+</VirtualHost>

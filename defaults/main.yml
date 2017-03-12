@@ -1,2 +1,10 @@
 ---
-# defaults file for laravel_deploy
+app_name: "laravel"
+destination: /var/www/html
+repo: "https://github.com/laravel/laravel.git"
+branch: master
+apache2_servername: example.com
+deploy_user: www-data
+deploy_group: www-data
+
+laravel_env:
